@@ -1,0 +1,14 @@
+<header class="navbar">
+  <div class="logo">
+    <a [routerLink]="'/'">
+      <img src="assets/logo.png" alt="Logo du site" />
+    </a>
+  </div>
+  <nav *ngIf="!isLoggedIn">
+    <button class="btn" [routerLink]="'/login'">Se connecter</button>
+    <button class="btn btn-primary" [routerLink]="'/register'">S'inscrire</button>
+  </nav>
+  <nav *ngIf="isLoggedIn">
+    <button class="btn" (click)="logout()">Déconnexion</button>
+  </nav>
+</header>

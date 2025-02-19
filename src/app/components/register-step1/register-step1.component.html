@@ -1,0 +1,45 @@
+<app-navbar [hideAuthButtons]="true"></app-navbar>
+
+<section class="registration-container">
+  <div class="registration-box">
+    <h2>Inscription</h2>
+    <p>Crée ton compte pour commencer ton programme personnalisé.</p>
+
+    <form #registerForm="ngForm" (ngSubmit)="nextStep(registerForm)" novalidate>
+      <div class="input-group" [class.invalid]="firstName.invalid && formSubmitted">
+        <label for="firstName">Prénom</label>
+        <input type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" placeholder="Ex: Alex" required #firstName="ngModel">
+        <div *ngIf="firstName.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="lastName.invalid && formSubmitted">
+        <label for="lastName">Nom</label>
+        <input type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" placeholder="Ex: Dupont" required #lastName="ngModel">
+        <div *ngIf="lastName.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="email.invalid && formSubmitted">
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="user.email" name="email" placeholder="Ex: alex.dupont@email.com" required email #email="ngModel">
+        <div *ngIf="email.invalid && formSubmitted" class="error">Email invalide ou requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="password.invalid && formSubmitted">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" [(ngModel)]="user.password" name="password" placeholder="********" required minlength="6" #password="ngModel">
+        <div *ngIf="password.invalid && formSubmitted" class="error">
+          <span *ngIf="password.errors?.required">Ce champ est requis.</span>
+          <span *ngIf="password.errors?.minlength">Minimum 6 caractères.</span>
+        </div>
+      </div>
+
+      <div class="login-link">
+        <span>Vous avez déjà un compte ? <a [routerLink]="'/login'">Se connecter</a></span>
+      </div>
+      <br>
+
+      <button type="submit" class="btn-primary">Suivant</button>
+    </form>
+
+  </div>
+</section>

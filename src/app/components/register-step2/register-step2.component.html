@@ -1,0 +1,47 @@
+<app-navbar [hideAuthButtons]="true"></app-navbar>
+
+<section class="registration-container">
+  <div class="registration-box">
+    <h2>Inscription</h2>
+    <p>Complète tes informations pour un programme adapté.</p>
+
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" novalidate>
+      <div class="input-group" [class.invalid]="weight.invalid && formSubmitted">
+        <label for="weight">Poids (kg)</label>
+        <input type="number" id="weight" [(ngModel)]="user.weight" name="weight" placeholder="Ex: 70" required #weight="ngModel">
+        <div *ngIf="weight.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="height.invalid && formSubmitted">
+        <label for="height">Taille (cm)</label>
+        <input type="number" id="height" [(ngModel)]="user.height" name="height" placeholder="Ex: 175" required #height="ngModel">
+        <div *ngIf="height.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="goal.invalid && formSubmitted">
+        <label for="goal">Objectif</label>
+        <select id="goal" [(ngModel)]="user.goal" name="goal" required #goal="ngModel">
+          <option value="" disabled selected>Choisissez un objectif</option>
+          <option value="Prise de masse">Prise de masse</option>
+          <option value="Perte de poids">Perte de poids</option>
+          <option value="Maintien">Maintien</option>
+        </select>
+        <div *ngIf="goal.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="level.invalid && formSubmitted">
+        <label for="level">Niveau</label>
+        <select id="level" [(ngModel)]="user.level" name="level" required #level="ngModel">
+          <option value="" disabled selected>Choisissez un niveau</option>
+          <option value="Débutant">Débutant</option>
+          <option value="Intermédiaire">Intermédiaire</option>
+          <option value="Avancé">Avancé</option>
+        </select>
+        <div *ngIf="level.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <button type="submit" class="btn-primary">S'inscrire</button>
+    </form>
+
+  </div>
+</section>
