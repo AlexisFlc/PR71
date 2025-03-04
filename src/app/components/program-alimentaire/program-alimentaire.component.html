@@ -1,0 +1,16 @@
+<app-navbar [hideAuthButtons]="true"></app-navbar>
+
+<section class="programs-page">
+  <h1>🍽️ Programmes Alimentaires</h1>
+  <p>Un plan alimentaire personnalisé pour optimiser tes performances.</p>
+
+  <div class="program-list">
+    <div class="program-card" *ngFor="let program of programs" [class.highlighted]="program.isHighlighted">
+      <h2>{{ program.name }}</h2>
+      <p class="goal">🎯 Objectif: <strong>{{ program.goal }}</strong></p>
+      <p class="level">📈 Niveau: <strong>{{ program.level }}</strong></p>
+      <p>{{ program.description }}</p>
+      <button class="btn btn-primary">Voir le plan</button>
+    </div>
+  </div>
+</section>

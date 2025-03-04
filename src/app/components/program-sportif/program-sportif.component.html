@@ -1,0 +1,17 @@
+<app-navbar [hideAuthButtons]="true"></app-navbar>
+
+<section class="programs-page">
+  <h1>🏋️ Programmes Sportifs</h1>
+  <p>Choisis un programme adapté à ton niveau et ton objectif.</p>
+
+  <div class="program-list">
+    <div class="program-card" *ngFor="let program of programs">
+      <h2>{{ program.name }}</h2>
+      <p class="goal">🎯 Objectif: {{ program.goal }}</p>
+      <p class="level">📈 Niveau: {{ program.level }}</p>
+      <p>{{ program.description }}</p>
+      <button class="btn btn-primary">Voir le programme</button>
+    </div>
+  </div>
+</section>
+

@@ -4,11 +4,18 @@
       <img src="assets/logo.png" alt="Logo du site" />
     </a>
   </div>
-  <nav *ngIf="!isLoggedIn">
-    <button class="btn" [routerLink]="'/login'">Se connecter</button>
-    <button class="btn btn-primary" [routerLink]="'/register'">S'inscrire</button>
-  </nav>
-  <nav *ngIf="isLoggedIn">
-    <button class="btn" (click)="logout()">Déconnexion</button>
+
+  <nav>
+    <button class="btn" [routerLink]="'/programmes-sportifs'">Programmes Sportifs</button>
+    <button class="btn" [routerLink]="'/programmes-alimentaires'">Programmes Alimentaires</button>
+
+    <ng-container *ngIf="!isLoggedIn">
+      <button class="btn" [routerLink]="'/login'">Se connecter</button>
+      <button class="btn btn-primary" [routerLink]="'/register'">S'inscrire</button>
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn">
+      <button class="btn" (click)="logout()">Déconnexion</button>
+    </ng-container>
   </nav>
 </header>

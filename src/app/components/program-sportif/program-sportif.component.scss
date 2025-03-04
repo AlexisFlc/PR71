@@ -1,0 +1,63 @@
+
+$primary-color: #ff8c00;
+$secondary-color: #1e1e2f;
+$hover-color: #e07b00;
+$text-light: white;
+$text-dark: #28293e;
+$accent-color: #ff6f00;
+
+.programs-page {
+  text-align: center;
+  padding: 100px 20px;
+  background: $secondary-color;
+  color: $text-light;
+
+  h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    opacity: 0.8;
+  }
+}
+
+.program-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+  .program-card {
+    background: white;
+    color: $text-dark;
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    h2 {
+      font-size: 1.5em;
+      color: $primary-color;
+      margin-bottom: 10px;
+    }
+
+    .goal, .level {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 15px;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
