@@ -1,21 +1,35 @@
 <header class="navbar">
-  <div class="logo">
-    <a [routerLink]="'/'">
-      <img src="assets/logo.png" alt="Logo du site" />
-    </a>
+  <div class="container">
+    <div class="logo">
+      <a [routerLink]="'/'">
+        <img src="assets/logo.png" alt="Logo du site" />
+      </a>
+    </div>
+
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a [routerLink]="'/programmes-sportifs'" class="nav-link">Programmes Sportifs</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/programmes-alimentaires'" class="nav-link">Programmes Alimentaires</a>
+        </li>
+      </ul>
+
+      <ul class="auth-list" *ngIf="!isLoggedIn">
+        <li>
+          <a [routerLink]="'/login'" class="nav-link">Se connecter</a>
+        </li>
+        <li>
+          <a [routerLink]="'/register'" class="btn btn-primary">S'inscrire</a>
+        </li>
+      </ul>
+
+      <ul class="auth-list" *ngIf="isLoggedIn">
+        <li>
+          <button (click)="logout()" class="btn">Déconnexion</button>
+        </li>
+      </ul>
+    </nav>
   </div>
-
-  <nav>
-    <button class="btn" [routerLink]="'/programmes-sportifs'">Programmes Sportifs</button>
-    <button class="btn" [routerLink]="'/programmes-alimentaires'">Programmes Alimentaires</button>
-
-    <ng-container *ngIf="!isLoggedIn">
-      <button class="btn" [routerLink]="'/login'">Se connecter</button>
-      <button class="btn btn-primary" [routerLink]="'/register'">S'inscrire</button>
-    </ng-container>
-
-    <ng-container *ngIf="isLoggedIn">
-      <button class="btn" (click)="logout()">Déconnexion</button>
-    </ng-container>
-  </nav>
 </header>

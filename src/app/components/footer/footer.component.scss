@@ -1,0 +1,347 @@
+.footer {
+  position: relative;
+  color: #fff;
+  margin-top: 4rem;
+  font-family: 'Roboto', sans-serif;
+
+  .image-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
+    url('/assets/images/fitness-background.jpg') no-repeat center/cover;
+    filter: blur(2px);
+    z-index: -1;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-content {
+    position: relative;
+    padding: 60px 0;
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 1.2fr 2fr 1.5fr;
+      gap: 40px;
+
+      @media (max-width: 992px) {
+        grid-template-columns: 1fr 2fr;
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  .footer-brand {
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0 0 12px;
+      color: #5e72e4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      color: #ddd;
+    }
+
+    .description {
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .app-badges {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+
+      .app-badge {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px 15px;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #fff;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+          transform: translateY(-2px);
+        }
+
+        i {
+          font-size: 1.5rem;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @media (max-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .footer-section {
+    h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background-color: #5e72e4;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 12px;
+
+        a {
+          color: #aaa;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          position: relative;
+          padding-left: 0;
+
+          &:hover {
+            color: #5e72e4;
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-contact {
+    h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background-color: #5e72e4;
+      }
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 25px;
+
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #5e72e4;
+          transform: translateY(-3px);
+        }
+
+        i {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .contact-info {
+      margin-bottom: 25px;
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+
+        i {
+          color: #5e72e4;
+          margin-right: 10px;
+          margin-top: 5px;
+        }
+
+        div {
+          p {
+            margin: 0;
+            color: #aaa;
+          }
+        }
+      }
+    }
+
+    .newsletter {
+      h4 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        color: #ddd;
+      }
+
+      .newsletter-form {
+        display: flex;
+
+        input {
+          flex: 1;
+          border: none;
+          background: rgba(255, 255, 255, 0.1);
+          padding: 12px 15px;
+          border-radius: 4px 0 0 4px;
+          color: #fff;
+          outline: none;
+
+          &::placeholder {
+            color: #aaa;
+          }
+        }
+
+        button {
+          background: #5e72e4;
+          border: none;
+          padding: 0 20px;
+          border-radius: 0 4px 4px 0;
+          color: #fff;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: darken(#5e72e4, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  .copyright-section {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .copyright {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .footer-links {
+      a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #5e72e4;
+        }
+      }
+
+      .separator {
+        color: #555;
+        margin: 0 10px;
+      }
+    }
+
+    .credit {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin: 0;
+
+      i {
+        color: #ff5e5e;
+        animation: heartBeat 1.3s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+// Ajouter des styles globaux pour le responsive
+@media (max-width: 992px) {
+  .footer .footer-nav {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer .footer-content .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer .footer-nav {
+    grid-template-columns: 1fr 1fr;
+  }
+}
