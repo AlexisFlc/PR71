@@ -1,59 +1,143 @@
-# AppFront
+# 💪 Chest.com - Application de Programmes Sportifs & Alimentaires
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+Chest.com est une application web moderne qui permet aux utilisateurs de découvrir, commenter, noter et ajouter en favori des programmes **sportifs** et **alimentaires**.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🧰 Stack Technique
 
-```bash
-ng serve
+- **Frontend** : [Angular 19.1.4](https://angular.io)
+- **Backend** : [Spring Boot 3.4.2](https://spring.io/projects/spring-boot)
+- **Base de données** : PostgreSQL 17.2
+- **Sécurité** : Spring Security (authentification, CORS configuré)
+
+---
+
+## 🚀 Pré-requis
+
+Assurez-vous d'avoir installé :
+
+- [Node.js (v18+)](https://nodejs.org) et npm
+- [Angular CLI](https://angular.io/cli)  
+  ```bash
+  npm install -g @angular/cli
+  ```
+- [Java 17+](https://adoptopenjdk.net)
+- Un IDE (IntelliJ, Eclipse, etc.)
+- [PostgreSQL](https://www.postgresql.org/)
+
+---
+
+## ⚙️ 1. Configuration de la Base de Données (PostgreSQL)
+
+Créez une base de données et importez le fichier pr71 présent à la racine du projet :
+
+---
+
+## ⚙️ 2. Lancer le Backend (Spring Boot)
+
+### 🔧 Configuration
+
+Dans `src/main/resources/application.properties` :
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/fitplanner
+spring.datasource.username=fituser
+spring.datasource.password=fitpassword
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### ▶️ Lancement
 
 ```bash
-ng generate component component-name
+./mvnw spring-boot:run
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Accès à l'API : [http://localhost:8080](http://localhost:8080)
+
+---
+
+## ⚙️ 3. Lancer le Frontend (Angular)
+
+### 📦 Installation
 
 ```bash
-ng generate --help
+cd app-front
+npm install
 ```
 
-## Building
-
-To build the project run:
+### ▶️ Démarrage
 
 ```bash
-ng build
+ng serve --proxy-config proxy.conf.json
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Avec un fichier `proxy.conf.json` :
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```json
+{
+  "/api": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
 ```
 
-## Running end-to-end tests
+Interface : [http://localhost:4200](http://localhost:4200)
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
+## 🔐 Authentification
+
+Spring Security gère l’authentification et le CORS. Les routes publiques : `/api/auth/**`. Le reste est protégé.
+
+---
+
+## 📁 Structure
+
+```
+.
+├── app-back/                  # Backend
+│   ├── controllers/
+│   ├── models/
+│   ├── repositories/
+│   ├── services/
+│   └── config/
+│
+├── app-front/                 # Frontend
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── components/
+│   │   │   ├── models/
+│   │   │   └── services/
+│   └── proxy.conf.json
+│
+└── README.md
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 🧪 Tests
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `GET /api/programs`
+- `GET /api/diet-programs`
+- `POST /api/programs/{id}/rating`
+- `POST /api/programs/{id}/comment`
+- `POST /api/programs/{id}/favorite`
+
+---
+
+## ✅ Améliorations
+
+- Gestion de profils
+- Recherche / filtres
+- Interface admin
+
+---
+
+## 👨‍💻 Auteur
+
+Développé par **[Falconnet Alexis, Gasser Stéphane, Hornsperger Ethan]**.
