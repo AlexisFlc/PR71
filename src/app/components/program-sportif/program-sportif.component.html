@@ -18,12 +18,14 @@
         <p>{{ program.description }}</p>
         <div class="program-rating">
           <div class="stars">
-            <span *ngFor="let star of [1,2,3,4,5]" (click)="addRating(program, star)">
-              <i class="fas" [ngClass]="{'fa-star': star <= program.rating, 'fa-star-o': star > program.rating}"></i>
-            </span>
+          <span *ngFor="let star of [1,2,3,4,5]" (click)="addRating(program, star)" class="star">
+            {{ star <= program.rating ? '★' : '☆' }}
+          </span>
           </div>
           <span class="reviews">({{ program.numberOfRatings }} avis)</span>
         </div>
+
+
         <div class="program-comments">
           <h4>Commentaires</h4>
           <div class="comment" *ngFor="let comment of program.comments">

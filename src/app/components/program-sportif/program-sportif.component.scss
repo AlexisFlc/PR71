@@ -15,6 +15,7 @@
     color: #333;
     margin: 0 auto 60px;
     position: relative;
+
     &::after {
       content: "";
       position: absolute;
@@ -143,14 +144,19 @@
         .stars {
           display: flex;
           gap: 5px;
-          span {
+
+          .star {
+            font-size: 1.5rem;
+            color: #ffc107;
             cursor: pointer;
-            i {
-              font-size: 1.2rem;
-              color: #ffc107;
+            transition: transform 0.2s ease;
+
+            &:hover {
+              transform: scale(1.2);
             }
           }
         }
+
 
         .reviews {
           margin-left: 10px;
@@ -178,10 +184,12 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
+
             strong {
               font-size: 0.95rem;
               color: #333;
             }
+
             small {
               font-size: 0.8rem;
               color: #999;

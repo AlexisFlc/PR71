@@ -17,10 +17,12 @@
         <h3>{{ program.title }}</h3>
         <p>{{ program.description }}</p>
         <div class="program-rating">
-          <span *ngFor="let star of [1,2,3,4,5]" (click)="addRating(program, star)">
-            <i class="fas" [ngClass]="{'fa-star': star <= program.rating, 'fa-star-o': star > program.rating}"></i>
+          <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]" (click)="addRating(program, star)" class="star">
+            {{ star <= program.rating ? '★' : '☆' }}
           </span>
-          <span>({{ program.numberOfRatings }} avis)</span>
+          </div>
+          <span class="reviews">({{ program.numberOfRatings }} avis)</span>
         </div>
         <div class="program-comments">
           <h4>Commentaires</h4>
@@ -29,8 +31,8 @@
             <small>{{ comment.createdAt | date }}</small>
           </div>
           <div class="add-comment">
-          <input type="text" #commentInput placeholder="Ajouter un commentaire">
-          <button (click)="addComment(program, commentInput.value); commentInput.value=''">Envoyer</button>
+            <input type="text" #commentInput placeholder="Ajouter un commentaire">
+            <button (click)="addComment(program, commentInput.value); commentInput.value=''">Envoyer</button>
           </div>
         </div>
       </div>

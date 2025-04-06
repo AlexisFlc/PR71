@@ -15,6 +15,7 @@
     color: #333;
     margin: 0 auto 60px;
     position: relative;
+
     &::after {
       content: "";
       position: absolute;
@@ -75,6 +76,7 @@
         padding: 10px;
         cursor: pointer;
         transition: transform 0.3s ease;
+
         i {
           color: #e74c3c;
           font-size: 1.2rem;
@@ -128,12 +130,14 @@
           display: flex;
           gap: 5px;
 
-          span {
+          .star {
+            font-size: 1.5rem;
+            color: #ffc107;
             cursor: pointer;
+            transition: transform 0.2s ease;
 
-            i {
-              font-size: 1.2rem;
-              color: #ffc107;
+            &:hover {
+              transform: scale(1.2);
             }
           }
         }
