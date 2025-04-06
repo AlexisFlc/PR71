@@ -1,0 +1,40 @@
+<app-navbar [hideAuthButtons]="true"></app-navbar>
+
+<div class="diet-program-list container">
+  <h2 class="section-title">Programmes Alimentaires</h2>
+  <div class="programs-grid">
+    <div class="program-card" *ngFor="let program of dietPrograms">
+      <div class="program-image" [ngStyle]="{'background-image': 'url(' + program.imageUrl + ')'}">
+        <button class="favorite-btn" (click)="toggleFavorite(program)">
+          <i class="fas" [ngClass]="{'fa-heart': program.isFavorite, 'fa-heart-o': !program.isFavorite}"></i>
+        </button>
+      </div>
+      <div class="program-content">
+        <div class="program-meta">
+          <span><i class="fas fa-clock"></i> {{ program.duration }}</span>
+          <span><i class="fas fa-fire"></i> {{ program.intensity }}</span>
+        </div>
+        <h3>{{ program.title }}</h3>
+        <p>{{ program.description }}</p>
+        <div class="program-rating">
+          <span *ngFor="let star of [1,2,3,4,5]" (click)="addRating(program, star)">
+            <i class="fas" [ngClass]="{'fa-star': star <= program.rating, 'fa-star-o': star > program.rating}"></i>
+          </span>
+          <span>({{ program.numberOfRatings }} avis)</span>
+        </div>
+        <div class="program-comments">
+          <h4>Commentaires</h4>
+          <div class="comment" *ngFor="let comment of program.comments">
+            <strong>{{ comment.user }}</strong>: {{ comment.text }}
+            <small>{{ comment.createdAt | date }}</small>
+          </div>
+          <div class="add-comment">
+          <input type="text" #commentInput placeholder="Ajouter un commentaire">
+          <button (click)="addComment(program, commentInput.value); commentInput.value=''">Envoyer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

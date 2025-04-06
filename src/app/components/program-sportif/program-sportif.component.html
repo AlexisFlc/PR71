@@ -1,17 +1,45 @@
 <app-navbar [hideAuthButtons]="true"></app-navbar>
-
-<section class="programs-page">
-  <h1>🏋️ Programmes Sportifs</h1>
-  <p>Choisis un programme adapté à ton niveau et ton objectif.</p>
-
-  <div class="program-list">
-    <div class="program-card" *ngFor="let program of programs">
-      <h2>{{ program.name }}</h2>
-      <p class="goal">🎯 Objectif: {{ program.goal }}</p>
-      <p class="level">📈 Niveau: {{ program.level }}</p>
-      <p>{{ program.description }}</p>
-      <button class="btn btn-primary">Voir le programme</button>
+<div class="program-list container">
+  <h2 class="section-title">Programmes Sportifs</h2>
+  <div class="programs-grid">
+    <div class="program-card" *ngFor="let program of programs" [ngClass]="{'favorite-highlight': program.isFavorite}">
+      <div class="program-image" [ngStyle]="{'background-image': 'url(' + program.imageUrl + ')'}">
+        <div class="overlay"></div>
+        <button class="favorite-btn" [ngClass]="{'active': program.isFavorite}" (click)="toggleFavorite(program)">
+          <i class="fas" [ngClass]="{'fa-heart': program.isFavorite, 'fa-heart-o': !program.isFavorite}"></i>
+        </button>
+      </div>
+      <div class="program-content">
+        <div class="program-meta">
+          <span><i class="fas fa-clock"></i> {{ program.duration }}</span>
+          <span><i class="fas fa-fire"></i> {{ program.intensity }}</span>
+        </div>
+        <h3>{{ program.title }}</h3>
+        <p>{{ program.description }}</p>
+        <div class="program-rating">
+          <div class="stars">
+            <span *ngFor="let star of [1,2,3,4,5]" (click)="addRating(program, star)">
+              <i class="fas" [ngClass]="{'fa-star': star <= program.rating, 'fa-star-o': star > program.rating}"></i>
+            </span>
+          </div>
+          <span class="reviews">({{ program.numberOfRatings }} avis)</span>
+        </div>
+        <div class="program-comments">
+          <h4>Commentaires</h4>
+          <div class="comment" *ngFor="let comment of program.comments">
+            <div class="comment-header">
+              <strong>{{ comment.user }}</strong>
+              <small>{{ comment.createdAt | date:'short' }}</small>
+            </div>
+            <p>{{ comment.text }}</p>
+          </div>
+          <div class="add-comment">
+            <input type="text" #commentInput placeholder="Ajouter un commentaire">
+            <button (click)="addComment(program, commentInput.value); commentInput.value=''">Envoyer</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
-
+</div>
+<app-footer></app-footer>

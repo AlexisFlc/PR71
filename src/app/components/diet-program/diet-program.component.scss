@@ -1,4 +1,4 @@
-.program-list {
+.diet-program-list {
   padding: 120px 0;
   background: #f2f4f7;
 
@@ -26,7 +26,6 @@
       border-radius: 2px;
     }
   }
-
 
   .programs-grid {
     display: grid;
@@ -70,36 +69,21 @@
         position: absolute;
         top: 15px;
         right: 15px;
-        background: #ffffff;
-        border: 1px solid #ddd;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
         border-radius: 50%;
         padding: 10px;
         cursor: pointer;
-        transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-
+        transition: transform 0.3s ease;
         i {
+          color: #e74c3c;
           font-size: 1.2rem;
-          transition: color 0.3s ease;
         }
 
         &:hover {
           transform: scale(1.1);
         }
       }
-
-      .favorite-btn.active {
-        background: #ffc107;
-        border-color: #ffc107;
-      }
-
-      .favorite-btn.active i {
-        color: #fff;
-      }
-
-      .favorite-btn:not(.active) i {
-        color: #ffc107;
-      }
-
     }
 
     .program-content {
@@ -143,8 +127,10 @@
         .stars {
           display: flex;
           gap: 5px;
+
           span {
             cursor: pointer;
+
             i {
               font-size: 1.2rem;
               color: #ffc107;
@@ -178,10 +164,12 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
+
             strong {
               font-size: 0.95rem;
               color: #333;
             }
+
             small {
               font-size: 0.8rem;
               color: #999;
