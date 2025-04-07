@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from '../navbar/navbar.component';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth.service';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {NavbarComponent} from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-register-step2',
@@ -16,10 +16,11 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrls: ['./register-step2.component.scss']
 })
 export class RegisterStep2Component {
-  user = { weight: null, height: null, goal: '', level: '' };
+  user = {weight: null, height: null, goal: '', level: ''};
   formSubmitted = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   register(registerForm: any) {
     this.formSubmitted = true;
@@ -29,7 +30,7 @@ export class RegisterStep2Component {
     }
 
     const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
-    const finalUser = { ...storedUser, ...this.user };
+    const finalUser = {...storedUser, ...this.user};
 
     this.authService.register(finalUser).subscribe(() => {
       localStorage.removeItem('user');

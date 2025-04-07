@@ -1,0 +1,96 @@
+<section class="programs">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Nos programmes populaires</h2>
+      <p class="section-subtitle">Découvrez nos plans d'entraînement les plus appréciés par notre communauté</p>
+      <div class="program-filters">
+        <button class="filter-btn active">Tous</button>
+        <button class="filter-btn">Perte de poids</button>
+        <button class="filter-btn">Prise de muscle</button>
+        <button class="filter-btn">Cardio</button>
+        <button class="filter-btn">Bien-être</button>
+      </div>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card" data-categories="tous,prise de muscle">
+        <div class="program-image"
+             style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')">
+          <span class="program-badge">Populaire</span>
+        </div>
+        <div class="program-content">
+          <div class="program-meta">
+            <span><i class="fas fa-clock"></i> 12 semaines</span>
+            <span><i class="fas fa-fire"></i> Intensif</span>
+          </div>
+          <h3>PR71 Mass Builder</h3>
+          <p>Programme complet de prise de masse avec progression adaptative et suivi nutritionnel.</p>
+          <div class="program-footer">
+            <div class="program-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>4.7 (1.2K avis)</span>
+            </div>
+            <a [routerLink]="'/program-sportif'" class="btn btn-sm">Voir le détail</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card" data-categories="tous,perte de poids,cardio">
+        <div class="program-image"
+             style="background-image: url('https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')">
+          <span class="program-badge program-badge-red">Nouveau</span>
+        </div>
+        <div class="program-content">
+          <div class="program-meta">
+            <span><i class="fas fa-clock"></i> 8 semaines</span>
+            <span><i class="fas fa-fire"></i> Modéré</span>
+          </div>
+          <h3>Fat Burn Accelerator</h3>
+          <p>Programme HIIT de perte de graisse avec coaching nutritionnel spécifique et exercices ciblés.</p>
+          <div class="program-footer">
+            <div class="program-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>4.9 (357 avis)</span>
+            </div>
+            <a [routerLink]="'/program-sportif'" class="btn btn-sm">Voir le détail</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card" data-categories="tous,bien-être">
+        <div class="program-image"
+             style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')">
+        </div>
+        <div class="program-content">
+          <div class="program-meta">
+            <span><i class="fas fa-clock"></i> 6 semaines</span>
+            <span><i class="fas fa-fire"></i> Débutant</span>
+          </div>
+          <h3>Balance & Wellness</h3>
+          <p>Programme complet associant yoga, méditation et exercices doux pour un bien-être global.</p>
+          <div class="program-footer">
+            <div class="program-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>4.1 (845 avis)</span>
+            </div>
+            <a [routerLink]="'/program-sportif'" class="btn btn-sm">Voir le détail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="programs-cta">
+      <a [routerLink]="'/program-sportif'" class="btn btn-outline-primary">Voir tous les programmes</a>
+    </div>
+  </div>
+</section>

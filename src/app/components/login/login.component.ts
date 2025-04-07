@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from '../navbar/navbar.component';
+import {AuthService} from '../../services/auth.service';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {NavbarComponent} from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
@@ -18,10 +18,11 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  credentials = { email: '', password: '' };
+  credentials = {email: '', password: ''};
   formSubmitted = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   login(loginForm: any) {
     this.formSubmitted = true;

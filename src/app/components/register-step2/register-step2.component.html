@@ -8,13 +8,15 @@
     <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" novalidate>
       <div class="input-group" [class.invalid]="weight.invalid && formSubmitted">
         <label for="weight">Poids (kg)</label>
-        <input type="number" id="weight" [(ngModel)]="user.weight" name="weight" placeholder="Ex: 70" required #weight="ngModel">
+        <input type="number" id="weight" [(ngModel)]="user.weight" name="weight" placeholder="Ex: 70" required
+               #weight="ngModel">
         <div *ngIf="weight.invalid && formSubmitted" class="error">Ce champ est requis.</div>
       </div>
 
       <div class="input-group" [class.invalid]="height.invalid && formSubmitted">
         <label for="height">Taille (cm)</label>
-        <input type="number" id="height" [(ngModel)]="user.height" name="height" placeholder="Ex: 175" required #height="ngModel">
+        <input type="number" id="height" [(ngModel)]="user.height" name="height" placeholder="Ex: 175" required
+               #height="ngModel">
         <div *ngIf="height.invalid && formSubmitted" class="error">Ce champ est requis.</div>
       </div>
 

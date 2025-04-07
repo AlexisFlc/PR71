@@ -14,10 +14,11 @@ import {NavbarComponent} from '../navbar/navbar.component';
   styleUrls: ['./register-step1.component.scss']
 })
 export class RegisterStep1Component {
-  user = { firstName: '', lastName: '', email: '', password: '' };
+  user = {firstName: '', lastName: '', email: '', password: ''};
   formSubmitted = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   nextStep(registerForm: any) {
     this.formSubmitted = true;
