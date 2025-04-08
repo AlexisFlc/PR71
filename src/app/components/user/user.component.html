@@ -1,0 +1,68 @@
+<app-navbar [hideAuthButtons]="true"></app-navbar>
+
+<section class="user-profile">
+  <div class="profile-container">
+    <h2>Mon Compte</h2>
+    <p>Modifiez vos informations personnelles.</p>
+
+    <form #userForm="ngForm" (ngSubmit)="updateUser(userForm)" novalidate>
+      <div class="input-group" [class.invalid]="firstName.invalid && formSubmitted">
+        <label for="firstName">Prénom</label>
+        <input type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" placeholder="Ex: Alex" required #firstName="ngModel">
+        <div *ngIf="firstName.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="lastName.invalid && formSubmitted">
+        <label for="lastName">Nom</label>
+        <input type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" placeholder="Ex: Dupont" required #lastName="ngModel">
+        <div *ngIf="lastName.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="email.invalid && formSubmitted">
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="user.email" name="email" placeholder="Ex: alex.dupont@email.com"
+               required email #email="ngModel">
+        <div *ngIf="email.invalid && formSubmitted" class="error">Email invalide ou requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="weight.invalid && formSubmitted">
+        <label for="weight">Poids (kg)</label>
+        <input type="number" id="weight" [(ngModel)]="user.weight" name="weight" placeholder="Ex: 70" required #weight="ngModel">
+        <div *ngIf="weight.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="height.invalid && formSubmitted">
+        <label for="height">Taille (cm)</label>
+        <input type="number" id="height" [(ngModel)]="user.height" name="height" placeholder="Ex: 175" required #height="ngModel">
+        <div *ngIf="height.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="goal.invalid && formSubmitted">
+        <label for="goal">Objectif</label>
+        <select id="goal" [(ngModel)]="user.goal" name="goal" required #goal="ngModel">
+          <option value="" disabled>Choisissez un objectif</option>
+          <option value="Prise de masse">Prise de masse</option>
+          <option value="Perte de poids">Perte de poids</option>
+          <option value="Maintien">Maintien</option>
+        </select>
+        <div *ngIf="goal.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <div class="input-group" [class.invalid]="level.invalid && formSubmitted">
+        <label for="level">Niveau</label>
+        <select id="level" [(ngModel)]="user.level" name="level" required #level="ngModel">
+          <option value="" disabled>Choisissez un niveau</option>
+          <option value="Débutant">Débutant</option>
+          <option value="Intermédiaire">Intermédiaire</option>
+          <option value="Avancé">Avancé</option>
+        </select>
+        <div *ngIf="level.invalid && formSubmitted" class="error">Ce champ est requis.</div>
+      </div>
+
+      <button type="submit" class="btn-primary">Sauvegarder les modifications</button>
+      <div class="update-message" *ngIf="updateMessage">{{ updateMessage }}</div>
+    </form>
+  </div>
+</section>
+
+<app-footer></app-footer>

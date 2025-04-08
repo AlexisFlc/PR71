@@ -28,4 +28,14 @@ export class AuthService {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('token');
   }
+
+  getUserProfile(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/profile`, { withCredentials: true });
+  }
+
+
+  updateUser(user: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/profile`, user, { withCredentials: true });
+  }
+
 }

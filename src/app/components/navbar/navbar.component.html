@@ -2,7 +2,7 @@
   <div class="container">
     <div class="logo">
       <a [routerLink]="'/'">
-        <img src="assets/logo.png" alt="Logo du site"/>
+        <img src="assets/logo.png" alt="Logo du site" />
       </a>
     </div>
 
@@ -26,8 +26,14 @@
       </ul>
 
       <ul class="auth-list" *ngIf="isLoggedIn">
-        <li>
-          <button (click)="logout()" class="btn">Déconnexion</button>
+        <li class="user-menu">
+          <button class="user-menu-button" (click)="toggleUserMenu()">
+            <span class="user-icon">👤</span>
+          </button>
+          <ul class="user-dropdown" [class.show]="isUserMenuOpen">
+            <li (click)="goToAccount()">Compte</li>
+            <li (click)="logout()">Déconnexion</li>
+          </ul>
         </li>
       </ul>
     </nav>

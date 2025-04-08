@@ -1,0 +1,81 @@
+.user-profile {
+  padding: 100px 0;
+  background: #f2f4f7;
+
+  .profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    form {
+      .input-group {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 5px;
+          font-weight: 600;
+          color: #333;
+        }
+
+        input, select {
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 1rem;
+          color: #333;
+        }
+
+        &.invalid input, &.invalid select {
+          border-color: #f5365c;
+        }
+
+        .error {
+          color: #f5365c;
+          font-size: 0.85rem;
+          margin-top: 5px;
+        }
+      }
+
+      .btn-primary {
+        width: 100%;
+        padding: 12px;
+        background: #5e72e4;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        &:hover {
+          background: #4558ca;
+        }
+      }
+
+      .update-message {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 1rem;
+        color: #2dce89;
+      }
+    }
+  }
+}

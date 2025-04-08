@@ -5,6 +5,7 @@ import {RegisterStep2Component} from './components/register-step2/register-step2
 import {LoginComponent} from './components/login/login.component';
 import {ProgramSportifComponent} from './components/program-sportif/program-sportif.component';
 import {DietProgramComponent} from './components/diet-program/diet-program.component';
+import {UserComponent} from './components/user/user.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
   {path: 'programmes-sportifs', component: ProgramSportifComponent},
   {path: 'programmes-alimentaires', component: DietProgramComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'user', component: UserComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

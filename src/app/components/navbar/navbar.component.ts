@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {Router, RouterLink} from '@angular/router';
-import {CommonModule} from '@angular/common';
-import {AuthService} from '../../services/auth.service';
+import { Component, Input } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,8 +16,9 @@ import {AuthService} from '../../services/auth.service';
 export class NavbarComponent {
   @Input() hideAuthButtons: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  isUserMenuOpen: boolean = false;
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
@@ -26,5 +27,14 @@ export class NavbarComponent {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/']);
+  }
+
+  toggleUserMenu(): void {
+    this.isUserMenuOpen = !this.isUserMenuOpen;
+  }
+
+  goToAccount(): void {
+    this.router.navigate(['/user']);
+    this.isUserMenuOpen = false;
   }
 }
